@@ -6,7 +6,7 @@
   <title>AmizClothz - Women's Fashion</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* ===== Your Existing Styles (unchanged except cleanup) ===== */
+   /* ===== Your Existing Styles (unchanged except cleanup) ===== */
     * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
     :root {--primary:#3a86ff;--secondary:#ff006e;--accent:#8338ec;--light:#f8f9fa;--dark:#212529;--success:#28a745;}
     body {background:#f9f9f9;color:var(--dark);line-height:1.6;}
@@ -102,6 +102,60 @@
 .add-to-wishlist.active i {
   color: red; /* stays red if saved */
 }
+
+
+/* ============= MOBILE FIXES ============= */
+ @media (max-width:768px) 
+  { 
+    .top-header {
+      flex-direction:column;
+      display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+    } 
+    .header-icons {
+      width:100%;
+      justify-content:center;
+    } 
+    .nav-links {
+      flex-wrap: wrap;
+      gap:15px;
+      font-size:14px;
+    } 
+    .hero h1 {font-size:28px;} 
+    .hero p {font-size:16px;} 
+    .products, .categories {gap:15px;} 
+  } 
+  @media (max-width:480px) {
+  .hero {padding:60px 15px;}
+  .hero h1 {font-size:22px;}
+  .hero p {font-size:14px;}
+  .btn {padding:8px 18px;font-size:14px;}
+
+  /* 🔹 Search bar full width */
+  .search-bar {
+    width: 100%;
+    max-width: 100%;
+    margin: 10px 0;
+  }
+  .search-form input {
+    width: 100%;
+  }
+
+  /* 🔹 Icons with spacing */
+  .header-icons {
+    width: 100%;
+    justify-content: center;
+    gap: 20px;       /* spacing between icons */
+    padding: 10px 20px; /* top & bottom padding */
+    position: relative; /* remove absolute positioning */
+    top: unset;
+  }
+
+  .product-img {height:160px;}
+}
+
   </style>
 </head>
 <body>
