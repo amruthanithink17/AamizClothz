@@ -344,8 +344,44 @@
         .add-to-cart:hover {
             background: var(--accent);
         }
+        .features {
+  padding: 50px 0;
+  text-align: center;
+  background: #fff;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+.feature {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 15px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.feature:hover {
+  transform: translateY(-5px);
+}
+.feature i {
+  font-size: 40px;
+  color: #2684FF;
+  margin-bottom: 15px;
+  transition: transform 1s ease, opacity 1s ease;
+}
+/* Truck Drive Animation */
+@keyframes driveAway {
+  0% { transform: translateX(0); opacity: 1; }
+  50% { transform: translateX(150px); opacity: 0.9; }
+  100% { transform: translateX(400px); opacity: 0; }
+}
+
+.drive {
+  animation: driveAway 1.2s ease-in-out forwards;
+}
         
-        /* Features Section */
+        /* Features Section 
         .features {
             background: white;
             padding: 50px 0;
@@ -539,6 +575,7 @@
   background: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
+  padding-top: 80px;
 }
 .form-container {
   background: #fff;
@@ -594,7 +631,7 @@
                         <i class="fas fa-user"></i>
                         <span>Account</span>
                     </a>
-                    <a href="wishlist.html" class="icon-link">
+                    <a href="Wishlist.html" class="icon-link">
                         <i class="fas fa-heart"></i>
                         <span>Wishlist</span>
                     </a>
@@ -813,47 +850,53 @@
 </div>
 
     <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <div class="feature-grid">
-                <div class="feature">
-                    <i class="fas fa-truck"></i>
-                    <h3>Free Shipping</h3>
-                    <p>On all orders over $50</p>
-                </div>
-                
-                <div class="feature">
-                    <i class="fas fa-undo"></i>
-                    <h3>Easy Returns</h3>
-                    <p>30-day return policy</p>
-                </div>
-                
-                <div class="feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Secure Payment</h3>
-                    <p>Safe and encrypted checkout</p>
-                </div>
-                
-                <div class="feature">
-                    <i class="fas fa-headset"></i>
-                    <h3>24/7 Support</h3>
-                    <p>Dedicated customer service</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <h2>Subscribe to Our Newsletter</h2>
-            <p>Stay updated with our latest trends and get exclusive offers</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Enter your email address">
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-    </section>
+<section class="features">
+  <div class="container">
+    <div class="feature-grid">
+
+      <!-- Free Shipping -->
+      <div class="feature" id="freeShipping">
+        <i class="fas fa-truck"></i>
+        <h3>Free Shipping</h3>
+        <p>On all orders over $50</p>
+      </div>
+
+      <!-- Easy Returns -->
+      <div class="feature">
+        <i class="fas fa-undo"></i>
+        <h3>Easy Returns</h3>
+        <p>30-day return policy</p>
+      </div>
+
+      <!-- Secure Payment -->
+      <div class="feature">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Secure Payment</h3>
+        <p>Safe and encrypted checkout</p>
+      </div>
+
+      <!-- Support -->
+      <div class="feature">
+        <i class="fas fa-headset"></i>
+        <h3>24/7 Support</h3>
+        <p>Dedicated customer service</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter">
+  <div class="container">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Stay updated with our latest trends and get exclusive offers</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email address">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
     
     <!-- Footer -->
     <footer>
@@ -907,6 +950,20 @@
             </div>
         </div>
     </footer>
+    <!-- Add This Script -->
+<script>
+const truckFeature = document.getElementById("freeShipping");
+const truckIcon = truckFeature.querySelector(".fa-truck");
+
+truckFeature.addEventListener("click", () => {
+  truckIcon.classList.add("drive");
+  
+  // After animation ends, redirect to shipping.html
+  setTimeout(() => {
+    window.location.href = "shipping.html";
+  }, 1200); // Match animation duration
+});
+</script>
     <!-- JavaScript -->
 <script>
 function openForm(productName) {
