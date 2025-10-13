@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amruthanithink17.github.io/AamizClothz/sitemap.xml
