@@ -7,6 +7,32 @@
   <link rel="icon" type="image/x-icon" href="images/logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+     /* header in mobile view */
+        html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+body {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain; /* stops bounce scroll on mobile */
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+main, .content, .container {
+  padding-top: 130px; /* adjust based on header height */
+}
+
+
+        /*end style */
    /* ===== Your Existing Styles (unchanged except cleanup) ===== */
     * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
     :root {--primary:#3a86ff;--secondary:#ff006e;--accent:#8338ec;--light:#f8f9fa;--dark:#212529;--success:#28a745;}
