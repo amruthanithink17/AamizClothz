@@ -2,39 +2,232 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Your Cart - AmizClothz</title>
   <link rel="icon" type="image/x-icon" href="images/logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    body{font-family:Poppins,sans-serif;background:#f5f7fb}
-    .container{max-width:1000px;margin:40px auto;background:#fff;padding:20px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:12px;border-bottom:1px solid #eee;text-align:left}
-    th{background:#3a86ff;color:#fff}
-    img.thumb{width:60px;height:60px;object-fit:cover;border-radius:6px}
-    .qty-input{width:60px;padding:6px}
-    .remove-btn{background:#ff006e;color:#fff;border:0;padding:6px 10px;border-radius:6px;cursor:pointer}
-    .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-    .cart-count{background:#ff006e;color:#fff;padding:6px 10px;border-radius:20px}
-    .checkout{background:#ff006e;color:#fff;padding:12px 18px;border-radius:8px;border:0;cursor:pointer}
-    .modal{display:none;position:fixed;z-index:999;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);align-items:center;justify-content:center}
-    .modal-content{background:#fff;padding:25px;border-radius:12px;max-width:500px;width:90%;box-shadow:0 6px 20px rgba(0,0,0,.2);animation:fadeIn .3s ease}
-    .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-    .close{cursor:pointer;font-size:22px;font-weight:bold;color:#ff006e}
-    .modal-content h2{margin:0 0 15px;color:#ff006e;font-weight:600}
-    .modal-content label{display:block;margin:10px 0 5px;font-weight:500;color:#444}
-    .modal-content input,.modal-content textarea,.modal-content select{
-      width:100%;box-sizing:border-box;padding:12px;border:2px solid #f3c0d0;border-radius:8px;margin-bottom:15px;
-      transition:0.3s;font-size:14px;background:#fffafc
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f5f7fb;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
-    .modal-content input:focus,.modal-content textarea:focus,.modal-content select:focus{
-      border-color:#ff006e;outline:none;box-shadow:0 0 6px rgba(255,0,110,0.4)
+
+    .container {
+      max-width: 1000px;
+      margin: 80px auto 40px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
     }
-    .place-order{background:#ff006e;color:#fff;border:0;padding:14px;border-radius:8px;cursor:pointer;width:100%;
-      font-size:16px;font-weight:600;transition:0.3s}
-    .place-order:hover{background:#e60063}
-    @keyframes fadeIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      gap: 10px;
+    }
+
+    .cart-count {
+      background: #ff006e;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow-x: auto;
+      display: block;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    th {
+      background: #3a86ff;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    img.thumb {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .qty-input {
+      width: 60px;
+      padding: 6px;
+    }
+
+    .remove-btn {
+      background: #ff006e;
+      color: #fff;
+      border: 0;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .checkout {
+      background: #ff006e;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .checkout:hover {
+      background: #e60063;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .close {
+      cursor: pointer;
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff006e;
+    }
+
+    .modal-content h2 {
+      margin: 0 0 15px;
+      color: #ff006e;
+      font-weight: 600;
+    }
+
+    .modal-content label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: 500;
+      color: #444;
+    }
+
+    .modal-content input,
+    .modal-content textarea,
+    .modal-content select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 2px solid #f3c0d0;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      transition: 0.3s;
+      font-size: 14px;
+      background: #fffafc;
+    }
+
+    .modal-content input:focus,
+    .modal-content textarea:focus,
+    .modal-content select:focus {
+      border-color: #ff006e;
+      outline: none;
+      box-shadow: 0 0 6px rgba(255,0,110,0.4);
+    }
+
+    .place-order {
+      background: #ff006e;
+      color: #fff;
+      border: 0;
+      padding: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .place-order:hover {
+      background: #e60063;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ✅ Responsive Fixes */
+    @media (max-width: 768px) {
+      .container {
+        margin: 60px 10px;
+        padding: 15px;
+      }
+      th, td {
+        font-size: 13px;
+        padding: 8px;
+      }
+      img.thumb {
+        width: 50px;
+        height: 50px;
+      }
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+      .checkout {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .topbar h2 {
+        font-size: 18px;
+      }
+      th, td {
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -170,7 +363,6 @@
       modal.style.display="none";
     });
 
-    // init
     render();
   </script>
 </body>
