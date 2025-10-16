@@ -9,6 +9,32 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+     /* header in mobile view */
+        html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+body {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain; /* stops bounce scroll on mobile */
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+main, .content, .container {
+  padding-top: 130px; /* adjust based on header height */
+}
+
+
+        /*end style */
     body {
       font-family: Arial, sans-serif;
       background: #f9f9f9;
