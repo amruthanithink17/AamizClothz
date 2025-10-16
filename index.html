@@ -85,7 +85,7 @@ body {
   scroll-behavior: smooth;
   overscroll-behavior: contain; /* stops bounce scroll on mobile */
 }
-
+/*
 header {
   position: fixed;
   top: 0;
@@ -93,10 +93,11 @@ header {
   width: 100%;
  /* z-index: 1000;*/
 }
+        
 
-main, .content, .container {
-  padding-top: 130px; /* adjust based on header height */
-}
+/*main, .content, .container {
+  padding-top: 130px; /* adjust based on header height 
+}*/
 
 
         /*end of this style*/
@@ -114,14 +115,13 @@ main, .content, .container {
             padding: 0 15px;
         }
         
-       /* Header Styles */
+       /* Header Styles 
         header {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-             /*margin-top: 40px;*/ /* push down below offer bar height */
-  background-color: white; /* optional */
+  background-color: white; 
   z-index: 100;
-        }
+        }*/
         
         .top-header {
             display: flex;
@@ -689,6 +689,7 @@ main, .content, .container {
   background: #ccc;
 }
         /*offer*/
+/* Offer Marquee */
 .offer-marquee {
   position: fixed;
   top: 0;
@@ -703,6 +704,23 @@ main, .content, .container {
   z-index: 1200;
 }
 
+/* Keep header below marquee */
+header {
+  position: fixed;
+  top: 35px; /* height of marquee bar */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1100; /* just below marquee */
+}
+
+/* Prevent content from hiding behind fixed header + marquee */
+main, section, .container {
+  padding-top: 180px; /* increase if header height changes */
+}
+
+
     </style>
 </head>
 <body>
@@ -711,7 +729,8 @@ main, .content, .container {
   <marquee behavior="scroll" direction="left" scrollamount="6">
     🔥 Big Sale! Up to 50% OFF on all products | Free Shipping on orders above $50 | Limited Time Offer! 🎉
   </marquee>
-</div
+</div> <!-- ✅ properly closed -->
+
     <!-- Header -->
     <header>
         <div class="container">
