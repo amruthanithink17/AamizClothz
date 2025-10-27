@@ -142,21 +142,24 @@
     </div>
   </div>
 
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", function(e) {
-      e.preventDefault(); // Prevent default form submission
+ <script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-      const email = this.querySelector('input[type="email"]').value;
-      const password = this.querySelector('input[type="password"]').value;
+  const email = this.querySelector('input[type="email"]').value.trim();
+  const password = this.querySelector('input[type="password"]').value;
 
-      // Example check (replace with Firebase or Django auth later)
-      if(email === "user@example.com" && password === "123456") {
-        window.location.href = "index.html";
-      } else {
-        alert("Invalid email or password!");
-      }
-    });
-  </script>
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+
+  if (storedUser && storedUser.email === email && storedUser.password === password) {
+    localStorage.setItem("username", storedUser.name); // for account.html
+    alert("Login successful!");
+    window.location.href = "account.html";
+  } else {
+    alert("Invalid email or password!");
+  }
+});
+</script>
 
 </body>
 </html>
