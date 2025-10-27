@@ -108,14 +108,13 @@ body {
 <div class="signup-container">
   <div class="brand"><span>Amiz</span><span>Clothz</span></div>
   <h1>Sign Up</h1>
- <form onsubmit="return redirectToLogin()">
-
-    <input type="text" class="form-control" placeholder="Full Name" required>
-    <input type="email" class="form-control" placeholder="Email" required>
-    <input type="password" class="form-control" placeholder="Password" required>
-    <input type="password" class="form-control" placeholder="Confirm Password" required>
-    <button type="submit" class="btn-signup">Sign Up</button>
-  </form>
+<form onsubmit="return saveUser()">
+  <input id="fullname" type="text" placeholder="Full Name" required>
+  <input id="email" type="email" placeholder="Email" required>
+  <input id="password" type="password" placeholder="Password" required>
+  <input id="confirmPassword" type="password" placeholder="Confirm Password" required>
+  <button type="submit" class="btn">Sign Up</button>
+</form>
   <p class="mt-3 text-link">Already have an account? <a href="login.html">Login</a></p>
 </div>
 
@@ -127,10 +126,24 @@ body {
 
 </body>
 <script>
-  function redirectToLogin() {
-    // Redirect to login page after signup
-    window.location.href = "login.html";
-    return false; // prevents page refresh or actual form submission
+function saveUser() {
+  const name = document.getElementById("fullname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match!");
+    return false;
   }
+
+  // Save user data to localStorage
+  const user = { name, email, password };
+  localStorage.setItem("user", JSON.stringify(user));
+
+  alert("Account created successfully!");
+  window.location.href = "login.html";
+  return false;
+}
 </script>
 </html>
