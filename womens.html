@@ -405,24 +405,22 @@ main, .content, .container {
   </section>
 
   <!-- ===== Featured Products ===== -->
-  <section class="container">
-    <h2 class="section-title">Featured Products</h2>
-    <p class="section-subtitle">Discover our most popular items</p>
-    <div class="products">
-      <!-- Product 1 -->
-    <div class="product-card" data-id="3">
+  <main>
+     <div class="products">
+      <!-- PRODUCT 1 -->
+      <div class="product-card" data-id="1">
         <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=600&q=80" alt=">Floral Summer Dress">
+          <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=600&q=80" alt="Floral Summer Dress">
           <button class="add-to-wishlist"><i class="fas fa-heart"></i></button>
         </div>
         <div class="product-info">
-          <h3>>Floral Summer Dress</h3>
+          <h3>Floral Summer Dress</h3>
           <p>Light and comfortable for warm summer days</p>
           <div style="display:flex;align-items:center;justify-content:space-between">
             <div class="price">$59.99</div>
             <button
               class="add-to-cart"
-              data-id="3"
+              data-id="1"
               data-name="Floral Summer Dress"
               data-price="89.99"
               data-img="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=600&q=80"
@@ -430,19 +428,20 @@ main, .content, .container {
             >
               <i class="fa fa-shopping-cart"></i>
             </button>
-          </div>
-          <br>
-          <button style="margin-left: 55px;" class="btn btn-success buy-now" 
+          </div><br>
+         <button style="margin-left: 55px;" class="btn btn-success buy-now" 
         data-id="1" 
-        data-name="'Floral Summer Dress" 
-        data-price="49.99"
-        onclick="openForm(''Floral Summer Dress')">
+        data-name="Floral Summer Dress" 
+        data-price="$49.99"
+        onclick="openForm('Floral Summer Dress')">
   Buy Now
 </button>
+
         </div>
       </div>
-      <!-- Product 2 -->
-    <div class="product-card" data-id="3">
+
+      <!-- PRODUCT 2 -->
+      <div class="product-card" data-id="2">
         <div class="product-img">
           <img src="https://images.unsplash.com/photo-1589810635657-232948472d98?auto=format&fit=crop&w=600&q=80" alt="Elegant Blouse">
           <button class="add-to-wishlist"><i class="fas fa-heart"></i></button>
@@ -454,9 +453,9 @@ main, .content, .container {
             <div class="price">$39.99</div>
             <button
               class="add-to-cart"
-              data-id="3"
+              data-id="2"
               data-name="Elegant Blouse"
-              data-price="89.99"
+              data-price="$39.99"
               data-img="https://images.unsplash.com/photo-1589810635657-232948472d98?auto=format&fit=crop&w=600&q=80"
               title="Add to cart"
             >
@@ -471,9 +470,11 @@ main, .content, .container {
         onclick="openForm('Elegant Blouse')">
   Buy Now
 </button>
+
         </div>
       </div>
-      <!-- Product 3 -->
+
+      <!-- PRODUCT 3 -->
       <div class="product-card" data-id="3">
         <div class="product-img">
           <img src="images/denim jacket.jpg" alt="Denim Jacket">
@@ -483,7 +484,7 @@ main, .content, .container {
           <h3>Denim Jacket</h3>
           <p>Classic style with a modern fit</p>
           <div style="display:flex;align-items:center;justify-content:space-between">
-            <div class="price">$69.99</div>
+            <div class="price">$89.99</div>
             <button
               class="add-to-cart"
               data-id="3"
@@ -499,13 +500,14 @@ main, .content, .container {
          <button style="margin-left: 55px;" class="btn btn-success buy-now" 
         data-id="1" 
         data-name="Denim Jacket" 
-        data-price="$69.99"
+        data-price="49.99"
         onclick="openForm('Denim Jacket')">
   Buy Now
 </button>
+
         </div>
       </div>
-      <!-- Product 4 -->
+       <!-- PRODUCT 4 -->
       <div class="product-card" data-id="3">
         <div class="product-img">
           <img src="images/handbag.jpg" alt="Designer Handbag">
@@ -513,14 +515,14 @@ main, .content, .container {
         </div>
         <div class="product-info">
           <h3>Designer Handbag</h3>
-          <p>Stylish and practical everyday bag</p>
+          <p>Stylish and practical everyday bag.</p>
           <div style="display:flex;align-items:center;justify-content:space-between">
-            <div class="price">$89.999</div>
+            <div class="price">$89.989</div>
             <button
               class="add-to-cart"
               data-id="3"
               data-name="Designer Handbag"
-              data-price="89.99"
+              data-price="89.989"
               data-img="images/handbag.jpg"
               title="Add to cart"
             >
@@ -528,19 +530,22 @@ main, .content, .container {
             </button>
           </div>
           <br>
-         <button style="margin-left: 55px;" class="btn btn-success buy-now" 
+          <button style="margin-left: 55px;" class="btn btn-success buy-now" 
         data-id="1" 
         data-name="Designer Handbag" 
-        data-price="$89.99"
+        data-price="$89.989"
         onclick="openForm('Designer Handbag')">
   Buy Now
 </button>
+
         </div>
       </div>
-    </div>
-  </section>
+      
+      </div>
 
-  <!-- ===== Buy Now Form ===== -->
+      <!-- (add more products similarly, make sure each button has unique data-id/data-name/data-price/data-img) -->
+    </div>
+  </main>
    <!-- Buy Now Form (Hidden by default) -->
 <div id="buyNowForm" class="buy-form">
   <div class="form-container">
