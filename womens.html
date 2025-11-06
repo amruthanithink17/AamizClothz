@@ -665,7 +665,7 @@ main, .content, .container {
   // =========================
   // CART BUTTONS
   // =========================
-  document.querySelectorAll(".product-card").forEach(card=>{
+  /*document.querySelectorAll(".product-card").forEach(card=>{
     const btn = card.querySelector(".add-to-cart");
     btn.addEventListener("click", ()=>{
       const name = card.querySelector("h3").textContent;
@@ -683,7 +683,27 @@ main, .content, .container {
       saveCart(cart);
       alert(name + " added to cart!");
     });
+  });*/
+   document.querySelectorAll(".product-card").forEach(card => {
+  const btn = card.querySelector(".add-to-cart");
+  btn.addEventListener("click", () => {
+    const name = card.querySelector("h3").textContent.trim();
+    const price = parseFloat(card.querySelector(".price").textContent.replace("$", "").trim()) || 0;
+    const imgEl = card.querySelector(".product-img img");
+    const img = imgEl ? imgEl.src : '';
+
+    let cart = loadCart();
+    const existing = cart.find(i => i.name === name);
+    if (existing) {
+      existing.qty = (existing.qty || 0) + 1;
+    } else {
+      cart.push({ name, price, img, qty: 1 });
+    }
+    saveCart(cart);
+    alert(name + " added to cart!");
   });
+});
+
 
   // =========================
   // WISHLIST BUTTONS
